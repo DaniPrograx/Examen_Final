@@ -4,6 +4,8 @@
  */
 package Model.Eventos;
 
+import java.util.Date;
+
 /**
  *
  * @author Student
@@ -11,6 +13,7 @@ package Model.Eventos;
 public class Eventos {
     private int id;
     private String nombre ;
+    private Date Fecha;
     private String lugar;
     private String capacidad;
 
