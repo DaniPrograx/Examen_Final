@@ -12,8 +12,9 @@ import java.util.Date;
  * @author Student
  */
 public class EventosDTO {
-      private int id;
-    private String nombre ;
+
+    private int id;
+    private String nombre;
     private Date Fecha;
     private String lugar;
     private String capacidad;
@@ -28,7 +29,6 @@ public class EventosDTO {
 
     public EventosDTO() {
     }
-   
 
     public int getId() {
         return id;
@@ -46,8 +46,4 @@ public class EventosDTO {
         return capacidad;
     }
 
-   
-    
-    
-    
 }
