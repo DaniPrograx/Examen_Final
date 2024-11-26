@@ -5,24 +5,30 @@
 package Model.Eventos;
 
 import DatabaseConnection.ConnectionBD;
+import java.util.Date;
 
 /**
  *
  * @author Student
  */
 public class EventosDTO {
-    private ConnectionBD connection;
-private int id;
+      private int id;
     private String nombre ;
+    private Date Fecha;
     private String lugar;
     private String capacidad;
-    public EventosDTO(ConnectionBD connection) {
-        this.connection = connection;
+
+    public EventosDTO(int id, String nombre, Date Fecha, String lugar, String capacidad) {
+        this.id = id;
+        this.nombre = nombre;
+        this.Fecha = Fecha;
+        this.lugar = lugar;
+        this.capacidad = capacidad;
     }
 
-    public ConnectionBD getConnection() {
-        return connection;
+    public EventosDTO() {
     }
+   
 
     public int getId() {
         return id;
