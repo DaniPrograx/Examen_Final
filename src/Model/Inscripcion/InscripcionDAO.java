@@ -10,7 +10,7 @@ import Model.Eventos.EventosDTO;
 import java.sql.SQLException;
 import java.util.List;
 import Model.Eventos.Eventos;
-import com.sun.jdi.connect.spi.Connection;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -22,6 +22,10 @@ import java.util.List;
  * @author Student
  */
 public class InscripcionDAO extends DAO<EventosDTO>{
+
+    public InscripcionDAO(Connection connection) {
+        super(connection);
+    }
     
     
     @Override
@@ -30,7 +34,7 @@ public class InscripcionDAO extends DAO<EventosDTO>{
         return false;
     }
       String query="Call Inscripciones(?,?,?)";
-      try(PreparedStatement stmt=connection.preparedStatement(query)){
+      try(PreparedStatement stmt=connection.prepareStatement(query)){
           stmt.setString(1, dto.getNombre());
           stmt.setInt(2, dto.getId());
           stmt.setString(3, dto.getCapacidad());
@@ -46,7 +50,7 @@ public class InscripcionDAO extends DAO<EventosDTO>{
         return null;
     }
       String query="Call Inscripciones(?,?,?)";
-      try(PreparedStatement stmt=connection.preparedStatement(query)){
+      try(PreparedStatement stmt=connection.prepareStatement(query)){
           stmt.setString(1,String.valueOf(id));
           try(ResultSet rs=stmt.executeQuery()){
               if(rs.next()){
@@ -65,7 +69,7 @@ public class InscripcionDAO extends DAO<EventosDTO>{
     public List<EventosDTO> readAll() throws SQLException {
         String query="Call Inscripciones()";
         List<EventosDTO> list=new ArrayList<>();
-      try(PreparedStatement stmt=connection.preparedStatement(query)){
+      try(PreparedStatement stmt=connection.prepareStatement(query)){
           stmt.setString(1,String.valueOf(id));
           try(ResultSet rs=stmt.executeQuery()){
              while(rs.next()){
@@ -87,7 +91,7 @@ public class InscripcionDAO extends DAO<EventosDTO>{
            return false;
        }
        String query="Call Inscripciones(?,?,?) ";
-       try(PreparedStatement stmt=connection.preparedStatement(query)){
+       try(PreparedStatement stmt=connection.prepareStatement(query)){
           stmt.setString(1, dto.getNombre());
           stmt.setInt(2, dto.getId());
           stmt.setString(3, dto.getCapacidad());

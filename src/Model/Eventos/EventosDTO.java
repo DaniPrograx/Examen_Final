@@ -32,6 +32,10 @@ public class EventosDTO {
     public EventosDTO() {
     }
 
+    public EventosDTO(String string, String string0) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public int getId() {
         return id;
     }
