@@ -6,17 +6,13 @@ package Model.Eventos;
 
 import Model.Mapper.Mapper;
 
-/**
- *
- * @author Student
- */
+ 
 public class EventosMapper implements Mapper<Eventos,EventosDTO>{
 
     @Override
     public EventosDTO toDTo(Eventos ent) {
     
-    
-        return null;
+    return null;
     
     
     }
