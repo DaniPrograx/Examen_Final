@@ -70,6 +70,11 @@ public class Inscripcion {
         this.asistencia = asistencia;
     }
 
+    @Override
+    public String toString() {
+        return "Inscripcion{" + "id=" + id + ", evento=" + evento + ", asistente=" + asistente + ", fecha=" + fecha + ", asistencia=" + asistencia + '}';
+    }
+
     
    
 
