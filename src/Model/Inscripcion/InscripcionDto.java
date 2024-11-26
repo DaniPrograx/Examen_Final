@@ -13,7 +13,7 @@ import java.time.LocalDate;
  * @author Student
  */
 public class InscripcionDto {
-     private int id;
+   private int id;
    private  Eventos evento;
    private Asistentes asistente;
    private LocalDate fecha;
