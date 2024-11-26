@@ -29,7 +29,7 @@ public class AsistenteDAO extends DAO<AsistenteDTO> {
             return false;
         }
         String query = "call AsistenteCreate(?,?,?,?)";
-        try ( PreparedStatement stmt = connection.prepareStatement(query)){
+        try ( PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, dto.getCedula());
             stmt.setString(2, dto.getNombre());
             stmt.setInt(3, dto.getTelefono());
@@ -46,7 +46,7 @@ public class AsistenteDAO extends DAO<AsistenteDTO> {
             return null;
         }
         String query = "call AsistenteRead(?)";
-        try ( PreparedStatement stmt = connection.prepareStatement(query)){
+        try ( PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, String.valueOf(cedula));
             try ( ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
@@ -56,41 +56,48 @@ public class AsistenteDAO extends DAO<AsistenteDTO> {
                             rs.getInt(3),
                             rs.getString(4)
                     );
-                    }
                 }
             }
-     return null;
+        }
+        return null;
     }
 
-        @Override
-        protected List<AsistenteDTO> readAll() throws SQLException {
-          String query = "call AsistenteReadAll()";
-          List<AsistenteDTO> list = new ArrayList<>();
-          try(PreparedStatement stmt = connection.prepareStatement(query)){
-              try(ResultSet rs = stmt.executeQuery()) {
-                  while (rs.next()) {
-                      list.add(new AsistenteDTO(
-                      rs.getInt(1),
+    @Override
+    protected List<AsistenteDTO> readAll() throws SQLException {
+        String query = "call AsistenteReadAll()";
+        List<AsistenteDTO> list = new ArrayList<>();
+        try ( PreparedStatement stmt = connection.prepareStatement(query)) {
+            try ( ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    list.add(new AsistenteDTO(
+                            rs.getInt(1),
                             rs.getString(2),
                             rs.getInt(3),
                             rs.getString(4)
-                      ));
-                      return list;
-                  }
-                 
-              
-              }
-          }
-            
-      return null;
-        
-         
-    }
+                    ));
+                    return list;
+                }
 
-        @Override
-        protected boolean update
-        (AsistenteDTO dto) throws SQLException {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
         }
 
+        return null;
+
     }
+
+    @Override
+    protected boolean update(AsistenteDTO dto) throws SQLException {
+        if (dto == null) {
+            return false;
+        }
+        String query = "Call AsistenteUpdate(?,?) ";
+        try ( PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(3, dto.getTelefono());
+            stmt.setString(4, dto.getCorreo());
+
+            return stmt.executeUpdate() > 0;
+        }
+  
+    
+    }
+}
