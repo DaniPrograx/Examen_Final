@@ -4,6 +4,7 @@
  */
 package Model.Eventos;
 
+import Model.Inscripcion.Inscripcion;
 import Model.Mapper.Mapper;
 
  
@@ -11,16 +12,27 @@ public class EventosMapper implements Mapper<Eventos,EventosDTO>{
 
     @Override
     public EventosDTO toDTo(Eventos ent) {
-    
-    return null;
+     return new EventosDTO(
+       ent.getId(),
+       ent.getNombre(),
+       ent.getFecha(),
+       ent.getLugar(),
+       ent.getCapacidad()
+       );
+   
     
     
     }
 
     @Override
     public Eventos toEnt(EventosDTO dto) {
-      
-        return null;
+       return new Eventos(
+       dto.getId(),
+       dto.getNombre(),
+       dto.getLugar(),
+       dto.getCapacidad()
+       );
+        
       
     }
     

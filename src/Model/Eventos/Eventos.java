@@ -24,6 +24,15 @@ public class Eventos {
         this.capacidad = capacidad;
     }
 
+    public Date getFecha() {
+        return Fecha;
+    }
+
+    public void setFecha(Date Fecha) {
+        this.Fecha = Fecha;
+    }
+    
+
     public int getId() {
         return id;
     }
