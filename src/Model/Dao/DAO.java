@@ -5,7 +5,7 @@
 package Model.Dao;
 
 import Model.Eventos.Eventos;
-import com.sun.jdi.connect.spi.Connection;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
