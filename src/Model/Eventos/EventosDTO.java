@@ -5,6 +5,7 @@
 package Model.Eventos;
 
 import DatabaseConnection.ConnectionBD;
+import java.sql.PreparedStatement;
 import java.util.Date;
 
 /**
@@ -18,6 +19,7 @@ public class EventosDTO {
     private Date Fecha;
     private String lugar;
     private String capacidad;
+ 
 
     public EventosDTO(int id, String nombre, Date Fecha, String lugar, String capacidad) {
         this.id = id;
